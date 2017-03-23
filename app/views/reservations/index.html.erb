@@ -1,3 +1,4 @@
+<%= link_to 'Add reservation', new_reservation_path %>
 <%= month_calendar(events: @reservations, attribute: :start_on, end_attribute: :end_on) do |date, reservations| %>
   <%= date.strftime('%e %b') %>
 
