@@ -1,10 +1,8 @@
-<%= link_to 'Add reservation', new_reservation_path %>
 <%= month_calendar(events: @reservations, attribute: :start_on, end_attribute: :end_on) do |date, reservations| %>
   <%= date.strftime('%e %b') %>
-
-  <% reservations.each do |reservation| %>
+  <div>
+    <%= link_to pluralize(reservations.count, 'reservation'), "" unless reservations.count == 0 %>
     <div>
-      Reservation
     </div>
-  <% end %>
+  </div>
 <% end %>
