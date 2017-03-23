@@ -1,0 +1,9 @@
+<%= month_calendar(events: @reservations, attribute: :start_on, end_attribute: :end_on) do |date, reservations| %>
+  <%= date.strftime('%e %b') %>
+
+  <% reservations.each do |reservation| %>
+    <div>
+      Reservation
+    </div>
+  <% end %>
+<% end %>
