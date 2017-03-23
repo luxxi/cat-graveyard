@@ -1,6 +1,6 @@
 App.reservations = App.cable.subscriptions.create "ReservationsChannel",
   connected: ->
-    $('#date').datepicker().on 'changeDate', (ev) =>
+    $(document).on 'changeDate', "#date", (ev) =>
       @perform 'reserve', date: ev.date
 
   received: (data) ->
