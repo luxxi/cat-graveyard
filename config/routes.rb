@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_scope :customer do
+    get "/login" => "devise/sessions#new"
+    get "/signup" => "devise/registrations#new", as: "new_user_registration"
+  end
+  devise_for :customers
 end
