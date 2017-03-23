@@ -15,7 +15,7 @@
   <div class="field">
     <%= slot.first.to_s[11..15] %> -
     <%= (DateTime.parse(slot.last.to_s) + 1.hour).to_s[11..15] %>
-    <%= f.radio_button :reservation_slot, "#{slot.first}##{DateTime.parse(slot.last.to_s) + 1.hour}" %>
+    <%= f.radio_button :reservation_slot, "#{slot.first}##{DateTime.parse(slot.last.to_s) + 1.hour}", required: 'required' %>
   </div>
 <% end %>
 
