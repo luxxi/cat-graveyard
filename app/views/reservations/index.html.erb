@@ -1,0 +1,13 @@
+<%= month_calendar(events: @reservations, attribute: :start_on, end_attribute: :end_on) do |date, reservations| %>
+  <%= date.strftime('%e %b') %>
+  <div>
+    <%= link_to pluralize(reservations.count, 'reservation'), reservation_path(date), remote: true unless reservations.count == 0 %>
+    <div>
+      <% @weather['list'].each_with_index do |day, index| %>
+        <% if Time.at(@weather['list'][index]['dt']).to_date == date %>
+          <%= @weather['list'][index]['weather'][0]['description'] %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

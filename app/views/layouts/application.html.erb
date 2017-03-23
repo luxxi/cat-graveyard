@@ -9,6 +9,28 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Cat Graveyard</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><%= link_to 'Add reservation', new_reservation_path %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container content">
+      <% if flash[:notice] %>
+        <div class="notice alert alert-success">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>

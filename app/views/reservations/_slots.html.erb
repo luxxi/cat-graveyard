@@ -1,0 +1,25 @@
+<%= form_for(reservation) do |f| %>
+  <% if reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this testum from being saved:</h2>
+
+      <ul>
+      <% reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% slots.in_groups_of(2) do |slot| %>
+  <div class="field">
+    <%= slot.first.to_s[11..15] %> -
+    <%= (DateTime.parse(slot.last.to_s) + 1.hour).to_s[11..15] %>
+    <%= f.radio_button :reservation_slot, "#{slot.first}##{DateTime.parse(slot.last.to_s) + 1.hour}" %>
+  </div>
+<% end %>
+
+<div class="actions">
+  <%= f.submit 'Add reservation', class: 'btn' %>
+</div>
+<% end %>
