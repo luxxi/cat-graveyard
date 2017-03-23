@@ -59,3 +59,5 @@ gem 'simple_calendar', '~> 2.0'
 gem 'bootstrap-sass'
 
 gem 'bootstrap-datepicker-rails'
+
+gem 'open-weather'
