@@ -1,8 +1,11 @@
 <div class="row">
-  Pick a date: <%= text_field_tag 'date', nil,  data: {provide: 'datepicker' } %>
+  <div class="form-group col-xs-4">
+    <label for="usr">Pick a date</label>
+    <%= text_field_tag 'date', nil,  data: {provide: 'datepicker' }, class: 'form-control col-md-4' %>
+  </div>
 </div>
-<div class="row">
-  available slots
+<div class="row col-xs-4">
+  <h3>Available slots</h3>
   <div id="slots">
   </div>
 </div>
