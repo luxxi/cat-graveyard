@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     get "/signup" => "devise/registrations#new", as: "new_user_registration"
   end
   devise_for :customers
+
+  mount ActionCable.server => '/cable'
 end
