@@ -4,7 +4,7 @@
     <%= link_to pluralize(reservations.count, 'reservation'), "" unless reservations.count == 0 %>
     <div>
       <% @weather['list'].each_with_index do |day, index| %>
-        <% if Time.at(@a['list'][index]['dt']).to_date == date %>
+        <% if Time.at(@weather['list'][index]['dt']).to_date == date %>
           <%= @weather['list'][index]['weather'][0]['description'] %>
         <% end %>
       <% end %>
