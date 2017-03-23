@@ -12,6 +12,12 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
   end
 
+  def show
+    date = DateTime.parse(params[:id]) rescue nil
+    @reservations = Reservation.where('start_on BETWEEN ? AND ?', date.beginning_of_day, date.end_of_day)
+    respond_to :js
+  end
+
   def create
     @reservation = current_customer.reservations.build(reservation_params)
     if @reservation.save

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "reservations#index"
 
-  resources :reservations, only: [:index, :new, :create]
+  resources :reservations, only: [:index, :new, :create, :show]
 
   devise_scope :customer do
     get "/login" => "devise/sessions#new"
