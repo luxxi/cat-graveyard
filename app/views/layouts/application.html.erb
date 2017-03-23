@@ -19,7 +19,9 @@
             <li class="active"><%= link_to 'Add reservation', new_reservation_path %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+            <% if customer_signed_in? %>
+              <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+            <% end %>
           </ul>
         </div>
       </div>
