@@ -4,4 +4,4 @@ App.reservations = App.cable.subscriptions.create "ReservationsChannel",
       @perform 'reserve', date: ev.date
 
   received: (data) ->
-    $('#slots').replaceWith(data['slots'])
+    $('#slots').html(data['slots'])
